@@ -40,9 +40,21 @@ providers:
 
 entryPoints:
   web:
-    address: ":80"
+    address: ":8000"
+    transport:
+      lifeCycle:
+        requestAcceptGraceTimeout: 6000s
+        graceTimeOut: 6000s
+        idleTimeout: 6000s
+      respondingTimeouts:
+        readTimeout: 6000s
+        writeTimeout: 6000s
+      dialTimeout: 6000s
+    forwardedHeaders:
+      insecure: true
+
   websecure:
-    address: ":443"
+    address: ":8443"
     transport:
       lifeCycle:
         requestAcceptGraceTimeout: 6000s
@@ -59,4 +71,11 @@ tlsOptions:
   default:
     minVersion: VersionTLS11
     maxVersion: VersionTLS13
+
+dynamicConfiguration:
+  http:
+    middlewares:
+      limit-body:
+        buffering:
+          maxRequestBodyBytes: 100000000
 ```
