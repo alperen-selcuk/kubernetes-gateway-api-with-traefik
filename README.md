@@ -16,11 +16,13 @@ kubectl apply -f https://raw.githubusercontent.com/traefik/traefik/v3.6/docs/con
 
 helm values
 
-***
+```
 providers:
   kubernetesGateway:
     enabled: true
-***
+```
+
+helm install
 
 ```
 helm repo add traefik https://traefik.github.io/charts
