@@ -12,3 +12,14 @@ spec:
       allowedRoutes:
         namespaces:
           from: All | Same
+#    - name: https
+#      protocol: HTTPS
+#      port: 8443         # Traefik HTTPS default port
+#      tls:
+#        mode: Terminate
+#        certificateRefs:
+#          - name: traefik-tls-secret
+#            namespace: default
+#      allowedRoutes:
+#        namespaces:
+#          from: All | Same 
